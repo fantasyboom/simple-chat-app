@@ -1,12 +1,8 @@
-/* Reset default margins and paddings */
-body, h1, h2, h3, p, ul, li, form {
-    margin: 0;
-    padding: 0;
-}
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
+    background-color: #121212;
+    color: #fff;
+    margin: 0;
 }
 
 .container {
@@ -15,48 +11,62 @@ body {
     padding: 20px;
 }
 
-#messages {
-    list-style-type: none;
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+.chat {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 15px;
+    overflow-y: scroll;
+    max-height: 400px; /* Limit chat container height and add scroll if needed */
 }
 
-#messages li {
-    margin-bottom: 10px;
-    padding: 8px;
-    background-color: #e2e2e2;
-    border-radius: 5px;
+.message {
+    max-width: 70%; /* Adjust based on your design */
+    padding: 15px;
+    border-radius: 20px;
+    word-wrap: break-word;
 }
 
-form {
+.sent {
+    background-color: #007bff; /* Blue */
+    align-self: flex-end;
+}
+
+.received {
+    background-color: #444; /* Dark gray */
+    align-self: flex-start;
+}
+
+.input-form {
     display: flex;
     align-items: center;
+    margin-top: 20px;
 }
 
-input[type="text"] {
+.input-field {
     flex: 1;
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
     border: none;
-    border-radius: 25px;
-    background-color: #f0f0f0;
+    border-radius: 30px;
+    background-color: #2b2b2b;
     margin-right: 10px;
+    color: #fff;
 }
 
-button {
-    padding: 10px 20px;
+.send-button {
+    padding: 12px 25px;
     font-size: 16px;
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
-button:hover {
+.send-button:hover {
     background-color: #0056b3;
 }

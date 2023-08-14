@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Simple Chat App</title>
+    <title>Chat App</title>
 </head>
 <body>
-    <ul id="messages"></ul>
-    <form id="chat-form" action="">
-        <input id="message" autocomplete="off" /><button>Send</button>
-    </form>
+    <div class="container">
+        <ul id="messages" class="chat"></ul>
+        <form id="chat-form" class="input-form">
+            <input id="message" type="text" class="input-field" placeholder="Type your message...">
+            <button class="send-button">Send</button>
+        </form>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
