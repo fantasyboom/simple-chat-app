@@ -49,8 +49,9 @@
             const mesg = msg.split(" ");
             
             for(var i=0;i<mesg.length;i++){
-            switch(mesg[i]){
-                case "react": mesg[i]="⚛️";break;
+                const p=mesg[i].toLowerCase();
+            switch(p){
+                case "react" : mesg[i]="⚛️";break;
                 case "hey" : mesg[i]="👋";break;
                 case "lol" : mesg[i]="😂";break;
                 case "like" : mesg[i]="❤️";break;
