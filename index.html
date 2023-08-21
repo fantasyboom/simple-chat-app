@@ -46,20 +46,23 @@
         socket.on('chat message', (msg) => {
             const messages = document.getElementById('messages');
             const li = document.createElement('li');
+            const mesg = msg.split(" ");
             
-            
-            switch(msg){
-                case "react": msg="⚛️";break;
-                case "hey" : msg="👋";break;
-                case "lol" : msg="😂";break;
-                case "like" : msg="❤️";break;
+            for(var i=0;i<mesg.length;i++){
+            switch(mesg[i]){
+                case "react": mesg[i]="⚛️";break;
+                case "hey" : mesg[i]="👋";break;
+                case "lol" : mesg[i]="😂";break;
+                case "like" : mesg[i]="❤️";break;
                 case "congratulations" : msg="🎉";break;
-                default: msg=msg;break;
+                default: mesg[i]=mesg[i];break;
             }
+        }
+        msg=mesg.join(" ");
         
-            li.textContent = msg;
-            //console.log(li);
-            messages.appendChild(li);
+        li.textContent = msg;
+         //console.log(li);
+        messages.appendChild(li);
         
         });
     </script>
