@@ -39,7 +39,7 @@ form.addEventListener('submit', (e) => {
             if(message[0]=="/"){
                 const slashmsg=message.slice(1);
                 switch(slashmsg){
-                    case "help" : alert("Available commands:\n/help: Show this message\n/clear: clear the chat\n/random: Show a random number");break;
+                    case "help" : alert("Available commands:\n/help: Show this message\n/clear: clear the chat\n/random: Show a random number\nFor emoji commands add ':' after the message");break;
                     case "random" :const t1="The random number generated is "; rand=Math.random(); message= t1.concat(rand);li.textContent = message;messages.appendChild(li);break;
                     case "clear" : while (messages.firstChild) {
                         messages.removeChild(messages.firstChild);
@@ -65,12 +65,12 @@ socket.on('chat message', (msg) => {
             for(var i=0;i<mesg.length;i++){
                 const p=mesg[i].toLowerCase();
             switch(p){
-                case "react" : mesg[i]="⚛️";break;
-                case "hey" : mesg[i]="👋";break;
-                case "lol" : mesg[i]="😂";break;
-                case "like" : mesg[i]="❤️";break;
-                case "congratulations" : mesg[i]="🎉";break;
-                case "india": mesg[i]="🇮🇳";break;
+                case "react:" : mesg[i]="⚛️";break;
+                case "hey:" : mesg[i]="👋";break;
+                case "lol:" : mesg[i]="😂";break;
+                case "like:" : mesg[i]="❤️";break;
+                case "congratulations:" : mesg[i]="🎉";break;
+                case "india:": mesg[i]="🇮🇳";break;
                 default: mesg[i]=mesg[i];break;
             }
         }
