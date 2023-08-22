@@ -1,77 +1,116 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #fff;
+/* Reset default margins and padding */
+body, h1, h2, p, ul, form {
     margin: 0;
+    padding: 0;
+}
+h1{
+    text-align: center;
+    color: #2ecc71;
+    font-size: 50px;
+    margin-top: 20px;
+
 }
 
+/* Set a background color */
+body {
+    background-color: #f6f8fa;
+    font-family: Arial, sans-serif;
+}
+
+/* Center the content */
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.chat {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    background-color: #1f1f1f;
-    border-radius: 10px;
-    padding: 15px;
-    overflow-y: scroll;
-    max-height: 400px; /* Limit chat container height and add scroll if needed */
-}
-
-.message {
-    max-width: 70%; /* Adjust based on your design */
-    padding: 15px;
-    border-radius: 20px;
-    word-wrap: break-word;
-}
-
-.sent {
-    background-color: #007bff; /* Blue */
-    align-self: flex-end;
-}
-
-.received {
-    background-color: #444; /* Dark gray */
-    align-self: flex-start;
-}
-
-.input-form {
-    display: flex;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Style the join form */
+/* ... (existing styles) ... */
+
+/* Style the join form */
+.join-form {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Add margin to create a gap */
+}
+
+.join-form h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.join-form p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.join-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px; /* Add margin to create a gap */
+    margin-bottom: 10px; /* Add margin to create a gap */
+}
+
+.join-button:hover {
+    background-color: #2980b9;
+}
+
+/* ... (rest of your styles) ... */
+
+
+/* Style the chat messages */
+.chat {
+    list-style-type: none;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Center the chat form */
+/* ... (existing styles) ... */
+
+/* Center the chat form */
+.input-form {
+    text-align: center;
     margin-top: 20px;
 }
 
 .input-field {
-    flex: 1;
-    padding: 12px;
-    font-size: 16px;
-    border: none;
-    border-radius: 30px;
-    background-color: #2b2b2b;
+    padding: 10px;
+    width: 60%; /* Adjust width as needed */
+    border: 1px solid #ccc;
+    border-radius: 5px;
     margin-right: 10px;
-    color: #fff;
+    font-size: 16px;
 }
 
 .send-button {
-    padding: 12px 25px;
-    font-size: 16px;
-    background-color: #007bff;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #2ecc71;
     color: #fff;
     border: none;
-    border-radius: 30px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s;
+    margin-left: 10px; /* Add margin to create a gap */
 }
 
 .send-button:hover {
-    background-color: #0056b3;
+    background-color: #27ae60;
 }
-ul {  
-    list-style-type: none;  
-    font-weight: normal;  
-    font-size: 20px;  
-    }  
