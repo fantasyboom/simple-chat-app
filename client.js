@@ -12,6 +12,10 @@ const chatForm = document.getElementById('chat-form');
 const messagesList = document.getElementById('messages');
 const messageInput = document.getElementById('message');
 const sendButton = document.querySelector('.send-button');
+function scrollToBottom() {
+    const messagesList = document.getElementById('messages');
+    messagesList.scrollTop = messagesList.scrollHeight;
+}
 
 joinButton.addEventListener('click', () => {
     username = usernameInput.value.trim();
@@ -55,6 +59,7 @@ form.addEventListener('submit', (e) => {
     // Clear the input field
     document.getElementById('message').value = '';
             }
+            scrollToBottom();
 });
 
 // Receive and display messages
@@ -77,6 +82,26 @@ socket.on('chat message', (msg) => {
         msg.message=mesg.join(" ");
     li.innerHTML = `<strong>${msg.username}:</strong> ${msg.message}`;
     messagesList.appendChild(li);
+    scrollToBottom();
+});
+
+// ... (existing code) ...
+
+// Scroll button behavior
+const scrollButton = document.getElementById('scroll-button');
+scrollButton.addEventListener('click', () => {
+    const messagesList = document.getElementById('messages');
+    messagesList.scrollTop = 0; // Scroll to the top
+});
+
+// ... (existing code) ...
+
+// Scroll cursor behavior
+const scrollCursor = document.getElementById('scroll-cursor');
+scrollCursor.addEventListener('click', () => {
+    const messagesList = document.getElementById('messages');
+    messagesList.scrollTop = 0; // Scroll to the top
 });
 
 // ... (rest of your code) ...
+

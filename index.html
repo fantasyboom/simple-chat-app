@@ -15,14 +15,18 @@
             <input id="username" type="text" class="input-field" placeholder="Your Name">
             <button class="join-button" id="join-button">Join Chat</button>
         </div>
-        <ul id="messages" class="chat"></ul>
-        <form id="chat-form" class="input-form">
-            <input id="message" type="text" class="input-field" placeholder="Type your message..." disabled>
-            <button class="send-button" disabled>Send</button>
-        </form>
+        <div class="container">
+            <ul id="messages" class="chat"></ul>
+            
+            <form id="chat-form" class="input-form">
+                <input id="message" type="text" class="input-field" placeholder="Type your message..." disabled>
+                <button class="send-button" disabled>Send</button>
+            </form>
+    
+        </div>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
-    <script src="client.js"></script>
+    <script src="client2.js"></script>
 </body>
 </html>
