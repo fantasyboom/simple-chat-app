@@ -32,25 +32,52 @@ joinButton.addEventListener('click', () => {
         socket.emit('user joined', username);
     }
 });
+var reminder={};
+const helpm="Available commands:\n/help: Show this message\n/clear: clear the chat\n/random: Show a random number\nFor emoji commands add ':' after the message\n/rem key value is used to rememebr info, use /rem key to access the value later\n/calc (exp) will calculate the expression";
 
 // Handle form submission
 const form = document.getElementById('chat-form');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     var message = document.getElementById('message').value;
+            
             var messages = document.getElementById('messages');
             const li = document.createElement('li');
+            console.log(typeof(message));
             if(message[0]=="/"){
                 const slashmsg=message.slice(1);
-                switch(slashmsg){
-                    case "help" : alert("Available commands:\n/help: Show this message\n/clear: clear the chat\n/random: Show a random number\nFor emoji commands add ':' after the message");break;
+                const mesg=slashmsg.split(" ");
+                console.log(mesg[0]);
+                switch(mesg[0]){
+                    case "help" : alert(helpm);break;
                     case "random" :const t1="The random number generated is "; rand=Math.random(); message= t1.concat(rand);li.textContent = message;messages.appendChild(li);break;
                     case "clear" : while (messages.firstChild) {
                         messages.removeChild(messages.firstChild);
                 }break;
+                    case "rem" :console.log(mesg.length);if(mesg.length==2){
+                        var key=mesg[1];
+                        //console.log(reminder[key]);
+                        var senm=reminder[key];
+                        //console.log(senm);
+                        li.textContent=senm;
+                        messages.appendChild(li);break;
+                    }
+                    else{
+                       // console.log("i am else");
+                        reminder[mesg[1]]=mesg[2];
+                        //console.log(reminder);
+                        break;
+                    }
+                    case 'calc': var cal=eval(mesg[1]);
+                                li.textContent=cal;
+                                messages.appendChild(li);break;
+                    
+                    
+                    
                 }
                 document.getElementById('message').value = '';
-            }
+            
+        }
             else{
 
     // Emit the message along with the username
@@ -88,20 +115,20 @@ socket.on('chat message', (msg) => {
 // ... (existing code) ...
 
 // Scroll button behavior
-const scrollButton = document.getElementById('scroll-button');
-scrollButton.addEventListener('click', () => {
-    const messagesList = document.getElementById('messages');
-    messagesList.scrollTop = 0; // Scroll to the top
-});
+// const scrollButton = document.getElementById('scroll-button');
+// scrollButton.addEventListener('click', () => {
+//     const messagesList = document.getElementById('messages');
+//     messagesList.scrollTop = 0; // Scroll to the top
+// });
 
 // ... (existing code) ...
 
 // Scroll cursor behavior
-const scrollCursor = document.getElementById('scroll-cursor');
-scrollCursor.addEventListener('click', () => {
-    const messagesList = document.getElementById('messages');
-    messagesList.scrollTop = 0; // Scroll to the top
-});
+// const scrollCursor = document.getElementById('scroll-cursor');
+// scrollCursor.addEventListener('click', () => {
+//     const messagesList = document.getElementById('messages');
+//     messagesList.scrollTop = 0; // Scroll to the top
+// });
 
 // ... (rest of your code) ...
 
