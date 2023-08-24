@@ -30,3 +30,21 @@ io.on('connection', (socket) => {
         console.log('A user disconnected');
     });
 });
+
+let userCount = 0;
+
+io.on('connection', (socket) => {
+    // Increment user count and emit to all clients
+    userCount++;
+    io.emit('user count', userCount);
+
+    // Handle user disconnection
+    socket.on('disconnect', () => {
+        // Decrement user count and emit to all clients
+        userCount--;
+        io.emit('user count', userCount);
+    });
+
+    // ... (existing socket.on code) ...
+});
+
