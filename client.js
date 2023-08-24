@@ -112,23 +112,11 @@ socket.on('chat message', (msg) => {
     scrollToBottom();
 });
 
-// ... (existing code) ...
+const userCountElement = document.getElementById('user-count');
+let userCount = 0;
 
-// Scroll button behavior
-// const scrollButton = document.getElementById('scroll-button');
-// scrollButton.addEventListener('click', () => {
-//     const messagesList = document.getElementById('messages');
-//     messagesList.scrollTop = 0; // Scroll to the top
-// });
-
-// ... (existing code) ...
-
-// Scroll cursor behavior
-// const scrollCursor = document.getElementById('scroll-cursor');
-// scrollCursor.addEventListener('click', () => {
-//     const messagesList = document.getElementById('messages');
-//     messagesList.scrollTop = 0; // Scroll to the top
-// });
-
-// ... (rest of your code) ...
+socket.on('user count', (count) => {
+    userCount = count;
+    userCountElement.textContent = `${userCount} ${userCount === 1 ? 'Online' : 'Online Users'}`;
+});
 
